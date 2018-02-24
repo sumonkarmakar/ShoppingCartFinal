@@ -2,27 +2,22 @@ package com.shopping.ShoppingCartFinal.DAOImpl;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.shopping.ShoppingCartFinal.DAO.UserDAO;
-import com.shopping.ShoppingCartFinal.Model.Supplier;
-import com.shopping.ShoppingCartFinal.Model.User1;
+import com.shopping.ShoppingCartFinal.DAO.BillDAO;
+import com.shopping.ShoppingCartFinal.Model.Bill;
 
-@Repository("userDAO")
-@Transactional
-public class UserDAOImpl implements UserDAO {
+@Repository("billDAO")
+public class BillDAOImpl implements BillDAO {
 	@Autowired
 	public SessionFactory sessionFactory;
-
 	@Override
-	public boolean insert(User1 user) {
+	public boolean insert(Bill bill) {
 		// TODO Auto-generated method stub
 		try {
-			sessionFactory.getCurrentSession().saveOrUpdate(user);
+			sessionFactory.getCurrentSession().saveOrUpdate(bill);
 			return true;
 		} catch (Exception e) {
 			System.out.println();
@@ -31,28 +26,29 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public User1 getById(int id) {
+	public Bill getById(int id) {
 		// TODO Auto-generated method stub
-		return (User1) sessionFactory.getCurrentSession().get(User1.class, id);
+		return (Bill) sessionFactory.getCurrentSession().get(Bill.class, id);
 	}
 
 	@Override
-	public boolean update(User1 user) {
+	public boolean update(Bill bill) {
 		// TODO Auto-generated method stub
-		try {
-			sessionFactory.getCurrentSession().update(user);
+		try{
+			sessionFactory.getCurrentSession().saveOrUpdate(bill);
 			return true;
-		} catch (Exception e) {
+		}
+		catch(Exception e){
 			System.out.println(e.getMessage());
 			return false;
 		}
 	}
 
 	@Override
-	public boolean delete(User1 user) {
+	public boolean delete(Bill bill) {
 		// TODO Auto-generated method stub
 		try {
-			sessionFactory.getCurrentSession().delete(user);
+			sessionFactory.getCurrentSession().delete(bill);
 			return true;
 		} catch (Exception e) {
 			System.out.println();
@@ -61,9 +57,9 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public List<User1> getAll() {
+	public List<Bill> getAll() {
 		// TODO Auto-generated method stub
-		return sessionFactory.getCurrentSession().createQuery("from User1").list();
+		return sessionFactory.getCurrentSession().createQuery("from Bill").list();
 	}
 
 }

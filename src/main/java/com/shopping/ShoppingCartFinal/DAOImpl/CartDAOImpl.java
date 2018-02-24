@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import com.shopping.ShoppingCartFinal.DAO.CartDAO;
 import com.shopping.ShoppingCartFinal.Model.Cart;
-import com.shopping.ShoppingCartFinal.Model.Category;
 
 @Repository("cartDAO")
 public class CartDAOImpl implements CartDAO {

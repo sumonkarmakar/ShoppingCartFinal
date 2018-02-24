@@ -2,6 +2,7 @@ package com.shopping.ShoppingCartFinal.Model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -10,6 +11,7 @@ import javax.persistence.Table;
 public class Supplier {
 	@Id
 	@Column(name="SupplierId")
+	@GeneratedValue
 	private Integer supId;
 	@Column(name="SupplierName")
 	private String supName;

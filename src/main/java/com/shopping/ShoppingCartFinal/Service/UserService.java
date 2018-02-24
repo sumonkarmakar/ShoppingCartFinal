@@ -13,4 +13,8 @@ public interface UserService {
 	public List<User1> getAll();
 	
 	public void delete(User1 user);
+	
+	public boolean validate(String userName,String Password);
+	
+	public User1 getUserByName(String userName);
 }
